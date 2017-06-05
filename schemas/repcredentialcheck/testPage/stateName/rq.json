@@ -1,33 +1,25 @@
-{
-    
-    "description": "Запрос workflow repcredentialcheck -> testPage#stateName",
+{  
+    "description": "Запрос на сервер startFlow#init",
     "type": "object",
     "properties": {
-        "fullName": {
-            "description": "Имя идентифицированного ФЛ",
+        "selectedId": {
+            "description": "какой-то выбранный id",
             "type": "string"
         },
-        "corpClientName": { "type": "string" },
-        "procDocType": { 
-            "$ref": "#/definitions/procDocType"
+        "email": {
+            "description": "имейл",
+            "type": "string"
+        },
+        "dulTypes": {
+            "description": "Список выбранных ДУЛ",
+            "$ref": "#/definitions/dulTypes"
         }
     },
-    "required": ["fullName", "corpClientName", "procDocType"],
+    "required": ["selectedId", "email"],
     "definitions": {
-        "procDocType": { 
+        "dulTypes": { 
             "type": "array", 
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": { "$ref": "#/definitions/positiveInteger" },
-                    "name": { "type": "string" }
-                }
-            },
-            "required": ["id", "name"]
-        },
-        "positiveInteger": {
-            "type": "integer",
-            "minimum": 0
+            "items": { "type": "string" }
         }
     }
 }
